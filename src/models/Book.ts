@@ -8,6 +8,7 @@ const authorSchema = new Schema({
 });
 
 const reviewSchema =  new Schema({
+    clientID:{type:String,required:true},
     clientName:{type:String,default:"Anônimo"},
     title:{type:String,required:true},
     review:{type:String,required:true},
@@ -29,7 +30,8 @@ const bookSchema = new Schema({
     category: {type:String,required:true},
     img:{type:String, default:'img_not_found.png'},
     author:{type:[authorSchema], required:true},
-    reviews:[reviewSchema]
+    reviews:[reviewSchema],
+    storage:{type:Number,default:0}
 });
 
 module.exports = mongoose.model('Book',bookSchema);
